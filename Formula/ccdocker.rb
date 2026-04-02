@@ -4,15 +4,10 @@ class Ccdocker < Formula
   version "0.1.0"
   license "MIT"
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/yossyl3oy/ccdocker/releases/download/v0.1.0/ccdocker-v0.1.0-darwin-arm64.tar.gz"
-      sha256 "PLACEHOLDER"
-    else
-      url "https://github.com/yossyl3oy/ccdocker/releases/download/v0.1.0/ccdocker-v0.1.0-darwin-amd64.tar.gz"
-      sha256 "PLACEHOLDER"
-    end
-  end
+  depends_on arch: :arm64
+
+  url "https://github.com/yossyl3oy/ccdocker/releases/download/v0.1.0/ccdocker-v0.1.0-darwin-arm64.tar.gz"
+  sha256 "1dec867978e8505920778e549f5c77965bf791360b52385c6ed5178196688867"
 
   def install
     libexec.install "ccdocker", "Dockerfile", "entrypoint.sh", ".dockerignore"
